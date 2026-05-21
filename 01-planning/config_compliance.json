@@ -1,0 +1,103 @@
+{
+  "project": "Financial Compliance Rule Engine v1.0",
+  "version": "1.0",
+  "jurisdiction": "Colombia — Ley 1581/2012 + Ley 1266/2008 + Circular SFC 029/2014",
+  "last_updated": "2026-05-15",
+
+  "PII_Rules": {
+    "CEDULA": {
+      "pattern": "\\b[1-9][0-9]{6,9}\\b",
+      "sensitivity": "PRIVADO",
+      "legal_basis": "Art. 5 Ley 1581/2012 — Dato privado",
+      "note": "Excluye secuencias irreales como 123456789 o 111111111"
+    },
+    "NIT": {
+      "pattern": "\\b[0-9]{9}-[0-9]{1}\\b",
+      "sensitivity": "PRIVADO",
+      "legal_basis": "Art. 5 Ley 1581/2012 — Dato privado",
+      "note": "Formato oficial DIAN: 000000000-0"
+    },
+    "EMAIL": {
+      "pattern": "[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}",
+      "sensitivity": "SEMIPRIVADO",
+      "legal_basis": "Art. 5 Ley 1581/2012 — Dato semiprivado"
+    },
+    "CELULAR_CO": {
+      "pattern": "\\b3[0-9]{9}\\b",
+      "sensitivity": "SEMIPRIVADO",
+      "legal_basis": "Art. 5 Ley 1581/2012 — Dato semiprivado",
+      "note": "Formato colombiano: comienza en 3, 10 dígitos"
+    },
+    "SCORE_CREDITICIO": {
+      "pattern": "\\b(score|puntaje|calificaci[oó]n)\\s*(creditici[ao])?\\s*:?\\s*[0-9]{3,4}\\b",
+      "sensitivity": "SENSIBLE",
+      "legal_basis": "Ley 1266/2008 — Habeas Data Financiero",
+      "note": "Dato sensible — requiere autorización expresa del titular"
+    }
+  },
+
+  "Legal_Requirements": [
+    {
+      "id": "REQ_01",
+      "description": "Autorización consulta centrales de riesgo",
+      "keywords": [
+        "autorización de consulta",
+        "centrales de riesgo",
+        "datacredito",
+        "transunion",
+        "cifin"
+      ],
+      "mandatory": true,
+      "norm": "Art. 13 Ley 1266/2008"
+    },
+    {
+      "id": "REQ_02",
+      "description": "Cláusula de tratamiento de datos personales",
+      "keywords": [
+        "tratamiento de datos",
+        "ley 1581",
+        "responsable del tratamiento",
+        "encargado del tratamiento"
+      ],
+      "mandatory": true,
+      "norm": "Art. 17 Ley 1581/2012 — Deber del Responsable"
+    },
+    {
+      "id": "REQ_03",
+      "description": "Autorización expresa del titular",
+      "keywords": [
+        "autorización expresa",
+        "consentimiento",
+        "autorizo expresamente",
+        "declaro que autorizo"
+      ],
+      "mandatory": true,
+      "norm": "Art. 9 Ley 1581/2012 — Autorización del Titular"
+    },
+    {
+      "id": "REQ_04",
+      "description": "Identificación del acreedor ante SFC",
+      "keywords": [
+        "superintendencia financiera",
+        "vigilado por",
+        "establecimiento de crédito",
+        "entidad vigilada"
+      ],
+      "mandatory": true,
+      "norm": "Circular Básica Jurídica SFC — Título I"
+    },
+    {
+      "id": "REQ_05",
+      "description": "Cláusula AML/KYC — SARLAFT",
+      "keywords": [
+        "lavado de activos",
+        "SARLAFT",
+        "conocimiento del cliente",
+        "origen de fondos",
+        "financiación del terrorismo"
+      ],
+      "mandatory": true,
+      "norm": "Circular SFC 026/2008 — SARLAFT"
+    }
+  ]
+}
