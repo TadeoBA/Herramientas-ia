@@ -1,0 +1,1 @@
+".pytest_cache/"  rm -r --cached app/__pycache__
